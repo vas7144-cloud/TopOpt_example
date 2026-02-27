@@ -119,6 +119,9 @@ def main(nelx,nely,volfrac,penal,rmin,ft):
 	plt.savefig("./results/final_structure.jpg")
 	# save the optimized structured
 	op_structure = xPhys.reshape((nelx,nely)).T
+	import os
+	os.makedirs("results", exist_ok=True)
+	np.savetxt("results/op_structure.txt", op_structure)
 	# save op_structure to a file under results folder using np.savetxt
 
 	#raw_input("Press any key...")
@@ -169,3 +172,4 @@ if __name__ == "__main__":
 	if len(sys.argv)>5: penal  =float(sys.argv[5])
 	if len(sys.argv)>6: ft     =int(sys.argv[6])
 	main(nelx,nely,volfrac,penal,rmin,ft)
+
